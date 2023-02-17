@@ -4,22 +4,22 @@ using CircusTreinLib.Animals;
 
 while (true)
 {
-    Console.WriteLine("\nHow big carnivores?");
+    Console.WriteLine("\nHow many big carnivores?");
     int bigCarnivoreAmount = GetNumberFromConsole();
     
-    Console.WriteLine("\nHow medium carnivores?");
+    Console.WriteLine("\nHow many medium carnivores?");
     int mediumCarnivoreAmount = GetNumberFromConsole();
     
-    Console.WriteLine("\nHow small carnivores?");
+    Console.WriteLine("\nHow many small carnivores?");
     int smallCarnivoreAmount = GetNumberFromConsole();
     
-    Console.WriteLine("\nHow big herbivores?");
+    Console.WriteLine("\nHow many big herbivores?");
     int bigHerbivoreAmount = GetNumberFromConsole();
     
-    Console.WriteLine("\nHow medium herbivores?");
+    Console.WriteLine("\nHow many medium herbivores?");
     int mediumHerbivoreAmount = GetNumberFromConsole();
     
-    Console.WriteLine("\nHow small herbivores?");
+    Console.WriteLine("\nHow many small herbivores?");
     int smallHerbivoreAmount = GetNumberFromConsole();
 
     Train train = new(
@@ -28,16 +28,45 @@ while (true)
 
     List<Wagon> wagons = train.Solve();
     
+    Console.WriteLine("           ^");
+    Console.WriteLine("          /^\\");
+    Console.WriteLine("         // \\\\");
+    Console.WriteLine("        //   \\\\");
+    Console.WriteLine("       //     \\\\");
+    Console.WriteLine("      //       \\\\");
+    Console.WriteLine("    ===============");
+    Console.WriteLine("    ||           ||");
+    Console.WriteLine("    ||           ||");
+    Console.WriteLine("    ||           ||");
+    Console.WriteLine("    ||           ||");
+    Console.WriteLine("    ||           ||");
+    Console.WriteLine("  ===================");
+    Console.WriteLine("  ||               ||");
+    Console.WriteLine("  ||               ||");
+    Console.WriteLine("  ||    Train ;)   ||");
+    Console.WriteLine("  ||               ||");
+    Console.WriteLine("  ||               ||");
+    Console.WriteLine("  ===================");
+    Console.WriteLine("           |");
+    Console.WriteLine("           |");
+    
     foreach (Wagon wagon in wagons)
     {
-        Console.WriteLine($"=== {wagon.Size} ===");
+        Console.WriteLine($"   ======= {wagon.Size} =======");
+        Console.WriteLine($"   ||             ||");
         foreach (Animal animal in wagon.Animals)
         {
-            Console.WriteLine($"{animal.Size} {animal.Name}");
+            Console.Write("   || ");
+            Console.Write($"{animal.Size} {animal.Name}");
+            Console.WriteLine(" ||");
         }
+
+        Console.WriteLine($"   ||             ||");
+        Console.WriteLine("   =================");
+        Console.WriteLine("           |");
     }
 
-    Console.WriteLine($"=== Total Wagons: {wagons.Count} ===");
+    Console.WriteLine($"\n    Total Wagons: {wagons.Count}");
 }
 
 int GetNumberFromConsole()
